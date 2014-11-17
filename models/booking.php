@@ -89,6 +89,7 @@ class WPHostelBooking {
 		$timestamp = date(get_option('date_format').' '.get_option('time_format'), strtotime($booking->timestamp));
 		
 		if($email_options['do_email_admin']) {
+			$_room = new WPHostelRoom();
 			$subject = $email_options["email_admin_subject"];
 			$message = $email_options["email_admin_message"];
 			
