@@ -1,7 +1,9 @@
 <form method="post">
-	<p><?php _e('Arriving:', 'wphostel')?> <input type="text" name="wphostel_from" value="<?php echo $datefrom?>" class="wphostelDatePicker"></p>
-	<p><?php _e('Leaving:', 'wphostel')?> <input type="text" name="wphostel_to" value="<?php echo $dateto?>" class="wphostelDatePicker"></p>
-	<p><input type="button" value="<?php _e('Show availability', 'wphostel')?>" onclick="validateHostelForm(this.form);"></p>
+	<p><?php _e('Arriving:', 'wphostel')?> <input type="text" size="10" value="<?php echo date($dateformat, strtotime($datefrom))?>"  class="wphostelDatePicker" id="wphostelFromDate<?php echo $shortcode_id?>">
+	<input type="hidden" name="wphostel_from" value="<?php echo $datefrom?>" id="alt_wphostelFromDate<?php echo $shortcode_id?>"></p>
+	<p><?php _e('Leaving:', 'wphostel')?> <input type="text" size="10" value="<?php echo date($dateformat, strtotime($dateto))?>" class="wphostelDatePicker" id="wphostelToDate<?php echo $shortcode_id?>">
+	<input type="hidden" name="wphostel_to" value="<?php echo $dateto?>" id="alt_wphostelToDate<?php echo $shortcode_id?>"></p>
+	<p><input type="button" value="<?php _e('Show availability', 'wphostel')?>" onclick="validateHostelForm(this.form);" ></p>
 </form>
 
 <div id="wphostelRoomsTable<?php echo $shortcode_id?>">
@@ -36,9 +38,15 @@ function validateHostelForm(frm) {
 		});
 	
 }
-jQuery(document).ready(function() {
+
+jQuery(document).ready(function() {    
     jQuery('.wphostelDatePicker').datepicker({
-        dateFormat : 'yy-mm-dd'
+        dateFormat : '<?php echo dateformat_PHP_to_jQueryUI($dateformat);?>',        
+        altFormat : "yy-mm-dd",                 
     });
-});	
+    
+    jQuery(".wphostelDatePicker").each(function (idx, el) { 
+	    jQuery(this).datepicker("option", "altField", "#alt_" + jQuery(this).attr("id"));
+	});
+});
 </script>

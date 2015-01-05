@@ -2,7 +2,7 @@
 Contributors: prasunsen
 Tags: hostel, hotel, booking, bnb, rooms, wpmu, touch
 Requires at least: 3.3
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: trunk
 License: GPL2
 
@@ -84,12 +84,13 @@ None yet, please ask in the forum
 
 == Changelog ==
 
-= Version 0.8.7 =
+= Version 0.8.8 =
 - Changed the booking form design to avoid styling issues
 - Added setting to auto-cleanup unconfirmed/unpaid bookings after given interval of time
 - Added setting for required minimum stay (X days)
 - Added {{room-name}} variable for the email contents
 - Added "max_days" attribute for the [wphostel-list] shortcode
+- Your custom date format will now be used accross the date selector fields
 
 = Version 0.8 = 
 - Reworked all forms to work only with Ajax. This will let you use multiple 

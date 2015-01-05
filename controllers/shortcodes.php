@@ -17,6 +17,8 @@ class WPHostelShortcodes {
 			
 		// select all rooms		
 		$rooms = $wpdb->get_results( "SELECT * FROM ".WPHOSTEL_ROOMS." ORDER BY title" );
+		
+		$dateformat = get_option('date_format');
 			
 		// display the booking form
 		wp_enqueue_script('jquery-ui-datepicker');
@@ -52,19 +54,31 @@ class WPHostelShortcodes {
 	} // end list_rooms();	
 	
 	// displays a Book! button
-	static function book($atts) {
+	static function book($atts) {		
 		global $post;
-		
 		$room_id = $atts[0];
+		$shortcode_id = self :: get_id();
 		
-		// when we have clicked the booking button load the booking form
-		if(!empty($_GET['in_booking_mode'])  and $_GET['room_id']==$room_id) {
+		// this if will be removed when bookiing by ajax is done 
+		if(!empty($_GET['in_booking_mode']) and $_GET['room_id']==$room_id) {
 			return self :: booking();
-		} 
-	
+		}
+		
 		$text = empty($atts[1]) ? __('Book', 'wphostel') : $atts[1];
 		
-		return '<input type="button" onclick="window.location='."'".wphostel_book_url($post->ID, $room_id, date("Y-m-d"), date("Y-m-d", strtotime("tomorrow")))."'".'" value="'.$text.'">';
+		wp_enqueue_script('jquery-ui-datepicker');
+		wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+		
+		return '<div id="wphostelBookForm'.$shortcode_id.'">
+		<form method="post">
+		<input type="hidden" name="from_date" value="'.date("Y-m-d", strtotime('tomorrow')).'">
+				<input type="hidden" name="to_date" value="'.date("Y-m-d", strtotime('+2 days')).'">
+				<input type="hidden" name="room_id" value="'.$room_id.'">				
+				<input type="hidden" name="action" value="wphostel_ajax">
+				<input type="hidden" name="type" value="load_booking_form">
+				<input type="hidden" name="in_booking_mode" value="1">		
+		<input type="button"  onclick="WPHostelLoadBooking(this.form, '."'wphostelBookForm".$shortcode_id."'".');" value="'.$text.'">
+		</form></div>';
 	}
 	
 	// create unique ID for each shortcode on the page so at any time we know which shortcode we are working with

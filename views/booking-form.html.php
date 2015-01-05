@@ -12,8 +12,10 @@
 			</select></p>
 			
 			<p><label><?php _e('No. beds to book:', 'wphostel')?></label> <br /><input type="text" name="beds" value="<?php echo empty($booking->beds) ? 1 : $booking->beds?>" size="4"></p>
-			<p><label><?php _e('Arriving:', 'wphostel')?></label> <br /><input type="text" size="10" name="from_date" value="<?php echo $from_date?>" class="wphostelDatePicker"></p>
-			<p><label><?php _e('Leaving:', 'wphostel')?></label> <br /><input type="text" size="10" name="to_date" value="<?php echo $to_date?>" class="wphostelDatePicker"></p>
+			<p><label><?php _e('Arriving:', 'wphostel')?></label> <br /><input type="text" size="10" value="<?php echo date($dateformat, strtotime($from_date))?>"  class="wphostelDatePicker" id="wphostelFromDate<?php echo $shortcode_id?>">
+			<input type="hidden" name="from_date" id="alt_wphostelFromDate<?php echo $shortcode_id?>" value="<?php echo $from_date?>" ></p>
+			<p><label><?php _e('Leaving:', 'wphostel')?></label> <br /><input type="text" size="10" value="<?php echo date($dateformat, strtotime($to_date))?>" class="wphostelDatePicker" id="wphostelToDate<?php echo $shortcode_id?>">
+						<input type="hidden" name="to_date" id="alt_wphostelToDate<?php echo $shortcode_id?>" value="<?php echo $to_date?>"></p>
 			
 			<p><label><?php _e('Contact name:', 'wphostel')?></label> <br /><input type="text" name="contact_name" value="<?php echo empty($booking->contact_name) ? '' : $booking->contact_name?>"></p>
 			<p><label><?php _e('Contact email:', 'wphostel')?></label> <br /><input type="text" name="contact_email" value="<?php echo empty($booking->contact_email) ? '' : $booking->contact_email?>"></p>
@@ -36,9 +38,14 @@
 	</div>
 	
 <script type="text/javascript" >
-jQuery(document).ready(function() {
+jQuery(document).ready(function() {    
     jQuery('.wphostelDatePicker').datepicker({
-        dateFormat : 'yy-mm-dd'
+        dateFormat : '<?php echo dateformat_PHP_to_jQueryUI($dateformat);?>',        
+        altFormat : "yy-mm-dd",                 
     });
+    
+    jQuery(".wphostelDatePicker").each(function (idx, el) { 
+	    jQuery(this).datepicker("option", "altField", "#alt_" + jQuery(this).attr("id"));
+	});
 });	
 </script>

@@ -88,6 +88,9 @@ class WPHostelBooking {
 		$to_date = date(get_option('date_format'), strtotime($booking->to_date));
 		$timestamp = date(get_option('date_format').' '.get_option('time_format'), strtotime($booking->timestamp));
 		
+		// select room
+		$room = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".WPHOSTEL_ROOMS." WHERE id=%d", $booking->room_id));		
+		
 		if($email_options['do_email_admin']) {
 			$_room = new WPHostelRoom();
 			$subject = $email_options["email_admin_subject"];
