@@ -158,6 +158,11 @@ class WPHostel {
 			}
 		}
 		
+		// default datepicker CSS
+		if(get_option('wphostel_datepicker_css') == '') {
+			update_option('wphostel_datepicker_css', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+		}
+		
 		$old_version = get_option('wphostel_version');
 		if(empty($old_version) or $old_version < 0.72) self :: install(true);
 		update_option('wphostel_version', '0.72');
@@ -197,6 +202,13 @@ class WPHostel {
 			// update_option('wphostel_booking_url', $_POST['booking_url']);		
 			update_option('wphostel_min_stay', $_POST['min_stay']);
 		}		
+		
+		if(!empty($_POST['datepicker_settings'])) {
+			// these will be the same for PRO and free versions
+			// datepicker locale and CSS
+			update_option('wphostel_locale_url', $_POST['locale_url']);
+			update_option('wphostel_datepicker_css', $_POST['datepicker_css']);
+		}
 		
 		$currency = get_option('wphostel_currency');
 		$currencies=array('USD'=>'$', "EUR"=>"&euro;", "GBP"=>"&pound;", "JPY"=>"&yen;", "AUD"=>"AUD",

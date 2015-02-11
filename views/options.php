@@ -58,8 +58,18 @@
 			
 			<p><input type="submit" value="<?php _e('Save Options', 'wphostel')?>"></p>
 			<input type="hidden" name="ok" value="1">
-		</div>
+				</div>
 	</form>
+	
+		<h2><?php _e('Datepicker Localization and Theming','wphostel')?></h2>
+		<form method="post" class="hostelpro-form">
+			<div class="postbox hostelpro-box">
+				<p><?php printf(__('Here you can specify localization and theme files for your datepicker. Please do read <a href="%s" target="_blank">this article</a> for more information.', 'wphostel'), 'http://blog.calendarscripts.info/localization-and-styling-of-the-datepicker-in-hostelpro/')?></p>
+				<p><label><?php _e('Localization  file URL:', 'wphostel')?></label> <input type="text" name="locale_url" value="<?php echo get_option('wphostel_locale_url');?>" size="80"></p>
+				<p><label><?php _e('CSS Theme URL:', 'wphostel')?></label> <input type="text" name="datepicker_css" value="<?php echo get_option('wphostel_datepicker_css');?>" size="80"></p>
+				<input type="submit" value="<?php _e('Save Datepicker Settings', 'wphostel')?>" name="datepicker_settings">
+			</div>
+		</form>
 	
 		<p><?php printf(__('Your feedback is most welcome! Please <a href="%s" target="_blank">let us know</a> what features and improvements you would like to see in the plugin.', 'wphostel'), 'http://wordpress.org/support/plugin/hostel')?></p>
 	</div>

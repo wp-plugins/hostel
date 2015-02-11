@@ -21,8 +21,7 @@ class WPHostelShortcodes {
 		$dateformat = get_option('date_format');
 			
 		// display the booking form
-		wp_enqueue_script('jquery-ui-datepicker');
-		wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+		wphostel_enqueue_datepicker();
 		include(WPHOSTEL_PATH."/views/booking-form.html.php");
 				
 		$content = ob_get_clean();
@@ -45,8 +44,7 @@ class WPHostelShortcodes {
 		$datefrom = empty($_POST['wphostel_from']) ? date("Y-m-d", strtotime("tomorrow")) : $_POST['wphostel_from'];
 		$dateto = empty($_POST['wphostel_to']) ? date("Y-m-d", $default_dateto_diff) : $_POST['wphostel_to'];
 		
-		wp_enqueue_script('jquery-ui-datepicker');
-		wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+		wphostel_enqueue_datepicker();
 		
 		include(WPHOSTEL_PATH."/views/list-rooms.html.php");
 		$content = ob_get_clean();
@@ -66,8 +64,7 @@ class WPHostelShortcodes {
 		
 		$text = empty($atts[1]) ? __('Book', 'wphostel') : $atts[1];
 		
-		wp_enqueue_script('jquery-ui-datepicker');
-		wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+		wphostel_enqueue_datepicker();
 		
 		return '<div id="wphostelBookForm'.$shortcode_id.'">
 		<form method="post">

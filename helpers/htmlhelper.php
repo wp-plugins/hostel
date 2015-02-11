@@ -264,3 +264,18 @@ if(!function_exists('dateformat_PHP_to_jQueryUI')) {
 	    return $jqueryui_format;
 	}
 }
+
+
+// enqueue the localized and themed datepicker
+function wphostel_enqueue_datepicker() {
+	$locale_url = get_option('wphostel_locale_url');	
+	wp_enqueue_script('jquery-ui-datepicker');	
+	if(!empty($locale_url)) {
+		// extract the locale
+		$parts = explode("datepicker-", $locale_url);
+		$sparts = explode(".js", $parts[1]);
+		$locale = $sparts[0];
+		wp_enqueue_script('jquery-ui-i18n-'.$locale, $locale_url, array('jquery-ui-datepicker'));
+	}
+	wp_enqueue_style('jquery-style', get_option('wphostel_datepicker_css'));
+}

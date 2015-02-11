@@ -1,14 +1,14 @@
-# Copyright (C) 2014 Hostel
+# Copyright (C) 2015 Hostel
 # This file is distributed under the same license as the Hostel package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Hostel 0.8.5\n"
+"Project-Id-Version: Hostel 0.8.9\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/hostel\n"
-"POT-Creation-Date: 2014-09-09 09:43:01+00:00\n"
+"POT-Creation-Date: 2015-02-11 11:03:38+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
@@ -48,12 +48,12 @@ msgstr ""
 msgid "Room deleted."
 msgstr ""
 
-#: controllers/shortcodes.php:64 views/partial/rooms-table.html.php:7
+#: controllers/shortcodes.php:65 views/partial/rooms-table.html.php:7
 #: views/partial/rooms-table.html.php:26
 msgid "Book"
 msgstr ""
 
-#. #-#-#-#-#  hostel.pot (Hostel 0.8.5)  #-#-#-#-#
+#. #-#-#-#-#  hostel.pot (Hostel 0.8.9)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: models/hostel.php:75
 msgid "Hostel"
@@ -143,54 +143,60 @@ msgstr ""
 msgid "No. beds to book:"
 msgstr ""
 
-#: views/booking-form.html.php:15 views/booking.html.php:12
-#: views/list-rooms.html.php:2
-msgid "From date:"
+#: views/booking-form.html.php:15 views/list-rooms.html.php:2
+msgid "Arriving:"
 msgstr ""
 
-#: views/booking-form.html.php:16 views/booking.html.php:13
-#: views/list-rooms.html.php:3
-msgid "To date:"
+#: views/booking-form.html.php:17 views/list-rooms.html.php:4
+msgid "Leaving:"
 msgstr ""
 
-#: views/booking-form.html.php:18 views/booking.html.php:16
+#: views/booking-form.html.php:20 views/booking.html.php:16
 msgid "Contact name:"
 msgstr ""
 
-#: views/booking-form.html.php:19 views/booking.html.php:17
+#: views/booking-form.html.php:21 views/booking.html.php:17
 msgid "Contact email:"
 msgstr ""
 
-#: views/booking-form.html.php:20 views/booking.html.php:18
+#: views/booking-form.html.php:22 views/booking.html.php:18
 msgid "Contact phone:"
 msgstr ""
 
-#: views/booking-form.html.php:21
+#: views/booking-form.html.php:23
 msgid "You are:"
 msgstr ""
 
-#: views/booking-form.html.php:22 views/booking.html.php:20
+#: views/booking-form.html.php:24 views/booking.html.php:20
 msgid "Male(s)"
 msgstr ""
 
-#: views/booking-form.html.php:23 views/booking.html.php:21
+#: views/booking-form.html.php:25 views/booking.html.php:21
 msgid "Female(s)"
 msgstr ""
 
-#: views/booking-form.html.php:24 views/booking.html.php:22
+#: views/booking-form.html.php:26 views/booking.html.php:22
 msgid "Couple"
 msgstr ""
 
-#: views/booking-form.html.php:25 views/booking.html.php:23
+#: views/booking-form.html.php:27 views/booking.html.php:23
 msgid "Mixed"
 msgstr ""
 
-#: views/booking-form.html.php:29
+#: views/booking-form.html.php:31
 msgid "Make Reservation"
 msgstr ""
 
 #: views/booking.html.php:2
 msgid "Add/Edit Reservation"
+msgstr ""
+
+#: views/booking.html.php:12
+msgid "From date:"
+msgstr ""
+
+#: views/booking.html.php:13
+msgid "To date:"
 msgstr ""
 
 #: views/booking.html.php:14
@@ -327,7 +333,7 @@ msgid ""
 "PRO</a>"
 msgstr ""
 
-#: views/help.html.php:6
+#: views/help.html.php:7
 msgid ""
 "This is a plugin for managing hostels, BNB sites, and small hotel sites. You "
 "get an area where to manage your available rooms and prices, and the "
@@ -336,7 +342,7 @@ msgid ""
 "details, you can use the following shortcodes:"
 msgstr ""
 
-#: views/help.html.php:9
+#: views/help.html.php:10
 msgid ""
 "will display a table with your available rooms. A date selector on the top "
 "lets the user choose dates of their visit and then the rooms list is "
@@ -345,7 +351,14 @@ msgid ""
 "automaically load the booking form"
 msgstr ""
 
-#: views/help.html.php:10
+#: views/help.html.php:12
+msgid ""
+"You can also pass the \"max_days\" attribute to specify the maximum interval "
+"of days that can be selected from the calendars. For example [wphostel-list "
+"max_days=10] will allow interval of 10 days. Default is 5."
+msgstr ""
+
+#: views/help.html.php:13
 msgid ""
 "displays a generic booking form with a drop-down selector for choosing room, "
 "and a date selector. If you use the [wphostel-list] shortcode you most "
@@ -353,22 +366,22 @@ msgid ""
 "generated."
 msgstr ""
 
-#: views/help.html.php:13
+#: views/help.html.php:16
 msgid ""
 "If you want to translate this plugin check out <a href=\"%s\" target=\"_blank"
 "\">this guide</a>. Our plugin textdomain is \"wphostel\" and you have to "
 "place your .po and .mo files in folder languages/"
 msgstr ""
 
-#: views/list-rooms.html.php:4
+#: views/list-rooms.html.php:6
 msgid "Show availability"
 msgstr ""
 
-#: views/list-rooms.html.php:21
-msgid "Please select up to 5 days interval."
+#: views/list-rooms.html.php:23
+msgid "Please select up to %d days interval."
 msgstr ""
 
-#: views/list-rooms.html.php:27
+#: views/list-rooms.html.php:29
 msgid "Minimum stay of %d days is required"
 msgstr ""
 
@@ -477,6 +490,29 @@ msgid "Save Options"
 msgstr ""
 
 #: views/options.php:64
+msgid "Datepicker Localization and Theming"
+msgstr ""
+
+#: views/options.php:67
+msgid ""
+"Here you can specify localization and theme files for your datepicker. "
+"Please do read <a href=\"%s\" target=\"_blank\">this article</a> for more "
+"information."
+msgstr ""
+
+#: views/options.php:68
+msgid "Localization  file URL:"
+msgstr ""
+
+#: views/options.php:69
+msgid "CSS Theme URL:"
+msgstr ""
+
+#: views/options.php:70
+msgid "Save Datepicker Settings"
+msgstr ""
+
+#: views/options.php:74
 msgid ""
 "Your feedback is most welcome! Please <a href=\"%s\" target=\"_blank\">let "
 "us know</a> what features and improvements you would like to see in the "
@@ -627,80 +663,84 @@ msgid "Discounts and surcharges"
 msgstr ""
 
 #: views/sidebar.html.php:30
-msgid "Reports and charts"
+msgid "Manage addon services"
 msgstr ""
 
 #: views/sidebar.html.php:31
-msgid "Customizable form code"
+msgid "Reports and charts"
 msgstr ""
 
 #: views/sidebar.html.php:32
+msgid "Customizable form code"
+msgstr ""
+
+#: views/sidebar.html.php:33
 msgid "And a lot more - just come to see!"
 msgstr ""
 
-#: views/sidebar.html.php:35
+#: views/sidebar.html.php:36
 msgid "Just go ahead and"
 msgstr ""
 
-#: views/sidebar.html.php:35
+#: views/sidebar.html.php:36
 msgid "take the tour"
 msgstr ""
 
-#: views/sidebar.html.php:35
+#: views/sidebar.html.php:36
 msgid "or check the"
 msgstr ""
 
-#: views/sidebar.html.php:35
+#: views/sidebar.html.php:36
 msgid "online demo."
 msgstr ""
 
-#: views/sidebar.html.php:37
+#: views/sidebar.html.php:38
 msgid ""
 "Upgrading to PRO comes with 60 days refund policy, one year free upgrades "
 "and one year free support."
 msgstr ""
 
-#: views/sidebar.html.php:41
+#: views/sidebar.html.php:42
 msgid "Help To Spread The Word!"
 msgstr ""
 
-#: views/sidebar.html.php:43
+#: views/sidebar.html.php:44
 msgid "If you like this plugin you can do some of the following:"
 msgstr ""
 
-#: views/sidebar.html.php:46
+#: views/sidebar.html.php:47
 msgid "Rate it 5 starts at Wordpress.org"
 msgstr ""
 
-#: views/sidebar.html.php:47
+#: views/sidebar.html.php:48
 msgid "Let others know about it by blogging or posting"
 msgstr ""
 
-#: views/sidebar.html.php:47
+#: views/sidebar.html.php:48
 msgid "our home page"
 msgstr ""
 
-#: views/sidebar.html.php:47
+#: views/sidebar.html.php:48
 msgid "on social networks."
 msgstr ""
 
-#: views/sidebar.html.php:48
+#: views/sidebar.html.php:49
 msgid "Go PRO"
 msgstr ""
 
-#: views/sidebar.html.php:48
+#: views/sidebar.html.php:49
 msgid "to empower your site with extra benefits"
 msgstr ""
 
-#: views/sidebar.html.php:53
+#: views/sidebar.html.php:54
 msgid "Need Support?"
 msgstr ""
 
-#: views/sidebar.html.php:55
+#: views/sidebar.html.php:56
 msgid "Please ask your question in the"
 msgstr ""
 
-#: views/sidebar.html.php:55
+#: views/sidebar.html.php:56
 msgid "support forum at WordPress."
 msgstr ""
 
