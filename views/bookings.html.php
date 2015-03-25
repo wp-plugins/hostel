@@ -27,7 +27,10 @@
 			endswitch;?></td>
 			<td nowrap="true"><input type="button" value="<?php _e('Edit', 'wphostel')?>" onclick="window.location='admin.php?page=wphostel_bookings&do=edit&id=<?php echo $booking->id?>&type=<?php echo $type?>&offset=<?php echo $offset?>';">
 			<?php if($booking->amount_due > 0 or $booking->status != 'active'):?>
-			<input type="button" value="<?php _e('Mark as paid', 'wphostel');?>" onclick="wpHostelMarkPaid(<?php echo $booking->id?>);">
+				<input type="button" value="<?php _e('Mark as paid', 'wphostel');?>" onclick="wpHostelMarkPaid(<?php echo $booking->id?>);">
+				<?php if($email_options['do_email_admin'] or $email_options['do_email_user']):?>
+					<br> <input type="checkbox" id="bookingEmais<?php echo $booking->id?>"> <?php _e('Send emails when marking paid.', 'wphostel');?>
+				<?php endif;?>
 			<?php endif;?></td></tr>
 		<?php endforeach;?>
 	</table>
@@ -44,7 +47,11 @@
 <script type="text/javascript">
 function wpHostelMarkPaid(id) {
 	if(confirm("<?php _e('Are you sure?', 'wphostel')?>")) {
-		window.location = 'admin.php?page=wphostel_bookings&type=<?php echo $type?>&offset=<?php echo $offset;?>&mark_paid=1&id='+id;
+		var notice_str = '';
+		if(jQuery('#bookingEmais' + id).length && jQuery('#bookingEmais' + id).is(':checked')) {
+			notice_str = "&send_emails=1";
+		}
+		window.location = 'admin.php?page=wphostel_bookings&type=<?php echo $type?>&offset=<?php echo $offset;?>&mark_paid=1&id='+id + notice_str;
 	}
 }
 </script>

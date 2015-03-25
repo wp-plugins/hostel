@@ -84,7 +84,7 @@ None yet, please ask in the forum
 
 == Changelog ==
 
-= Version 0.8.9 =
+= Version 0.9 =
 - Changed the booking form design to avoid styling issues
 - Added setting to auto-cleanup unconfirmed/unpaid bookings after given interval of time
 - Added setting for required minimum stay (X days)
@@ -92,6 +92,7 @@ None yet, please ask in the forum
 - Added "max_days" attribute for the [wphostel-list] shortcode
 - Your custom date format will now be used accross the date selector fields
 - The datepicker can now be localized and styled using the configuration fields on the options page
+- Optionally send notification emails when marking booking as paid from admin 
 
 = Version 0.8 = 
 - Reworked all forms to work only with Ajax. This will let you use multiple 

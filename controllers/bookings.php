@@ -58,6 +58,11 @@ class WPHostelBookings {
 				// mark booking as fully paid	
 				if(!empty($_GET['mark_paid'])) {
 					$_booking->mark_paid($_GET['id']);
+
+					if(!empty($_GET['send_emails'])) {
+						$_booking->email($_GET['id']);
+					}					
+					
 					wphostel_redirect("admin.php?page=wphostel_bookings&type=".$type."&offset=".$offset);
 				}
 				
@@ -80,6 +85,8 @@ class WPHostelBookings {
 					FROM ".WPHOSTEL_BOOKINGS." tB JOIN ".WPHOSTEL_ROOMS." tR ON tR.id = tB.room_id
 					WHERE is_static=0 $where_sql $orderby $limit_sql");
 				$count = $wpdb->get_var("SELECT FOUND_ROWS()");	
+				
+				$email_options = get_option('wphostel_email_options');
 				
 				require(WPHOSTEL_PATH."/views/bookings.html.php");  
 			break;
