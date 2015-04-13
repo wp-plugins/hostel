@@ -33,3 +33,5 @@
 .wphostelDatePicker {
 	min-width: 150px;
 }
+
+#ui-datepicker-div { display:none; }

@@ -84,6 +84,9 @@ None yet, please ask in the forum
 
 == Changelog ==
 
+= Version 0.9.1 =
+- Fixed the datepicker CSS bug
+
 = Version 0.9 =
 - Changed the booking form design to avoid styling issues
 - Added setting to auto-cleanup unconfirmed/unpaid bookings after given interval of time
