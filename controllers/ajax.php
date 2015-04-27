@@ -25,7 +25,7 @@ function wphostel_ajax() {
 			echo WPHostelShortcodes :: booking("roomID".$_POST['room_id']);
 		break;
 		case 'list_rooms':			
-			WPHostelRooms :: availability_table($_POST['shortcode_id']);
+			WPHostelRooms :: availability_table($_POST['shortcode_id'], array('show_titles' => @$_POST['show_titles']));
 		break;
 	}
 	exit;

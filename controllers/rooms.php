@@ -63,7 +63,7 @@ class WPHostelRooms {
 	}
 	
 	// displays the availability table of all rooms by given dates
-	static function availability_table($shortcode_id) {
+	static function availability_table($shortcode_id, $atts = null) {
 		global $wpdb;
 		
 		$_room = new WPHostelRoom();
@@ -71,6 +71,7 @@ class WPHostelRooms {
 		$dateformat = get_option('date_format');
 		$booking_mode = get_option('wphostel_booking_mode');
 		$min_stay = get_option('wphostel_min_stay');
+		$show_titles = empty($atts['show_titles']) ? 0 : $atts['show_titles'];
 				
 		// the dropdown defaults to "from tomorrow to 1 day after"
 		$default_dateto_diff = $min_stay ? strtotime("+ ".(intval($min_stay)+1)." days") : strtotime("+ 2 days");

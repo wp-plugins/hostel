@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Hostel package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Hostel 0.9\n"
+"Project-Id-Version: Hostel 0.9.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/hostel\n"
-"POT-Creation-Date: 2015-03-25 16:20:29+00:00\n"
+"POT-Creation-Date: 2015-04-27 08:53:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,12 +48,12 @@ msgstr ""
 msgid "Room deleted."
 msgstr ""
 
-#: controllers/shortcodes.php:65 views/partial/rooms-table.html.php:7
-#: views/partial/rooms-table.html.php:26
+#: controllers/shortcodes.php:66 views/partial/rooms-table.html.php:8
+#: views/partial/rooms-table.html.php:29
 msgid "Book"
 msgstr ""
 
-#. #-#-#-#-#  hostel.pot (Hostel 0.9)  #-#-#-#-#
+#. #-#-#-#-#  hostel.pot (Hostel 0.9.2)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: models/hostel.php:75
 msgid "Hostel"
@@ -355,14 +355,26 @@ msgid ""
 "automaically load the booking form"
 msgstr ""
 
-#: views/help.html.php:12
+#: views/help.html.php:11
 msgid ""
-"You can also pass the \"max_days\" attribute to specify the maximum interval "
-"of days that can be selected from the calendars. For example [wphostel-list "
-"max_days=10] will allow interval of 10 days. Default is 5."
+"This shorcode accepts arguments which allow you to specify whether room "
+"title should be shown in the table and the maxinimum days allowed for "
+"seletion. The argument can be set to 0 (means \"do not show\") and 1 (means "
+"\"show\"):"
 msgstr ""
 
 #: views/help.html.php:13
+msgid "Show / hide room titles. Defaults to 0."
+msgstr ""
+
+#: views/help.html.php:14
+msgid ""
+"Specify the maximum interval of days that can be selected from the "
+"calendars. For example [wphostel-list max_days=10] will allow interval of 10 "
+"days. Default is 5."
+msgstr ""
+
+#: views/help.html.php:17
 msgid ""
 "displays a generic booking form with a drop-down selector for choosing room, "
 "and a date selector. If you use the [wphostel-list] shortcode you most "
@@ -370,7 +382,7 @@ msgid ""
 "generated."
 msgstr ""
 
-#: views/help.html.php:16
+#: views/help.html.php:20
 msgid ""
 "If you want to translate this plugin check out <a href=\"%s\" target=\"_blank"
 "\">this guide</a>. Our plugin textdomain is \"wphostel\" and you have to "
@@ -523,24 +535,28 @@ msgid ""
 "plugin."
 msgstr ""
 
-#: views/partial/rooms-table.html.php:2 views/room.php:7 views/rooms.php:13
+#: views/partial/rooms-table.html.php:2
+msgid "Room"
+msgstr ""
+
+#: views/partial/rooms-table.html.php:3 views/room.php:7 views/rooms.php:13
 #: views/unavailable-dates.html.php:12
 msgid "Room type"
 msgstr ""
 
-#: views/partial/rooms-table.html.php:2 views/rooms.php:14
+#: views/partial/rooms-table.html.php:3 views/rooms.php:14
 msgid "Bathroom"
 msgstr ""
 
-#: views/partial/rooms-table.html.php:7
+#: views/partial/rooms-table.html.php:8
 msgid "Price per person"
 msgstr ""
 
-#: views/partial/rooms-table.html.php:14
+#: views/partial/rooms-table.html.php:17
 msgid "%d beds"
 msgstr ""
 
-#: views/partial/rooms-table.html.php:28
+#: views/partial/rooms-table.html.php:31
 msgid "Not available"
 msgstr ""
 

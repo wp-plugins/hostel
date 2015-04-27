@@ -32,7 +32,7 @@ function validateHostelForm(frm) {
 	<?php endif;?>
 
 	data = {'action': 'wphostel_ajax', 'type': 'list_rooms', 'wphostel_from' : frm.wphostel_from.value, 
-		'wphostel_to' : frm.wphostel_to.value, 'shortcode_id' : '<?php echo $shortcode_id?>'};
+		'wphostel_to' : frm.wphostel_to.value, 'show_titles': '<?php echo $show_titles?>', 'shortcode_id' : '<?php echo $shortcode_id?>'};
 	jQuery.post(wphostel_i18n.ajax_url, data, function(msg){
 			jQuery('#wphostelRoomsTable<?php echo $shortcode_id?>').html(msg);
 		});

@@ -39,6 +39,7 @@ class WPHostelShortcodes {
 		$min_stay = get_option('wphostel_min_stay');
 		$default_dateto_diff = $min_stay ? strtotime("+ ".(intval($min_stay)+1)." days") : strtotime("+ 2 days");
 		$max_days = empty($atts['max_days']) ? 5 : intval($atts['max_days']);
+		$show_titles = empty($atts['show_titles']) ? 0 : $atts['show_titles'];
 				
 		// the dropdown defaults to "from tomorrow to 1 day after"
 		$datefrom = empty($_POST['wphostel_from']) ? date("Y-m-d", strtotime("tomorrow")) : $_POST['wphostel_from'];

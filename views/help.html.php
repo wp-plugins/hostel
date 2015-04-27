@@ -8,8 +8,12 @@
 	
 	<ol>
 		<li><input type="text" value="[wphostel-list]" readonly onclick="this.select();"> <?php _e('will display a table with your available rooms. A date selector on the top lets the user choose dates of their visit and then the rooms list is updated. If you have enabled booking in your Hostel settings page, the table will also show "Book" button when appropriate. The button will automaically load the booking form', 'wphostel')?>
-		<br>
-		<?php _e('You can also pass the "max_days" attribute to specify the maximum interval of days that can be selected from the calendars. For example [wphostel-list max_days=10] will allow interval of 10 days. Default is 5.', 'wphostel')?></li>
+			<?php _e('This shorcode accepts arguments which allow you to specify whether room title should be shown in the table and the maxinimum days allowed for seletion. The argument can be set to 0 (means "do not show") and 1 (means "show"):', 'wphostel')?>
+			<ol>
+				<li>show_titles - <?php _e('Show / hide room titles. Defaults to 0.', 'hostelpro')?></li>
+				<li>max_days - <?php _e('Specify the maximum interval of days that can be selected from the calendars. For example [wphostel-list max_days=10] will allow interval of 10 days. Default is 5.', 'wphostel')?></li>
+			</ol>	
+		</li>
 		<li><input type="text" value="[wphostel-booking]" readonly onclick="this.select();"> <?php _e('displays a generic booking form with a drop-down selector for choosing room, and a date selector. If you use the [wphostel-list] shortcode you most probably do not need this one because the booking form is automatically generated.', 'wphostel');?></li>
 	</ol>
 	

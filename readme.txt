@@ -2,7 +2,7 @@
 Contributors: prasunsen
 Tags: hostel, hotel, booking, bnb, rooms, wpmu, touch
 Requires at least: 3.3
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: trunk
 License: GPL2
 
@@ -84,7 +84,8 @@ None yet, please ask in the forum
 
 == Changelog ==
 
-= Version 0.9.1 =
+= Version 0.9.2 =
+- Added "show_titles" argument to the [wphostel-list] shortcode. It allows you to show the room titles in the rooms listing table. 
 - Fixed the datepicker CSS bug
 
 = Version 0.9 =

@@ -1,5 +1,6 @@
 <table>
-		<tr><th><?php _e('Room type', 'wphostel')?></th><th><?php _e('Bathroom', 'wphostel')?></th>
+		<tr><?php if(!empty($show_titles)):?> <th><?php _e('Room', 'hostelpro');?></th><?php endif;?>
+		<th><?php _e('Room type', 'wphostel')?></th><th><?php _e('Bathroom', 'wphostel')?></th>
 		<?php for($i=0; $i < $numdays; $i++):
 			$curday_time = $datefrom_time + $i*24*3600;?>
 			<th><?php echo date($dateformat, $curday_time);?></th>
@@ -8,7 +9,9 @@
 		
 		<?php foreach($rooms as $room):
 			$can_book = true; ?>
-			<tr><td><?php echo $_room->prettify('rtype', $room['rtype'])?></td><td><?php echo $_room->prettify('bathroom', $room['bathroom'])?></td>
+			<tr>
+			<?php if(!empty($show_titles)):?><td><?php echo stripslashes($room['title']);?></td><?php endif;?>	
+			<td><?php echo $_room->prettify('rtype', $room['rtype'])?></td><td><?php echo $_room->prettify('bathroom', $room['bathroom'])?></td>
 			<?php for($i=0; $i < $numdays; $i++):
 				if(!$room['days'][$i]['available_beds']) $can_book = false;?>
 				<td><?php echo $room['days'][$i]['available_beds'] ? sprintf(__('%d beds', 'wphostel'), $room['days'][$i]['available_beds'])	 : "X"?></td>
