@@ -38,7 +38,7 @@
 	<p align="center"><?php if($offset > 0):?>
 		<a href="admin.php?page=wphostel_bookings&type=<?php echo $type?>&offset=<?php echo $offset - $page_limit?>"><?php _e('[previous page]', 'wphostel')?></a>
 	<?php endif;?> 
-	<?php if($count > ($page_limit + $offset*$page_limit)):?>
+	<?php if($count > ($page_limit + $offset)):?>
 		<a href="admin.php?page=wphostel_bookings&type=<?php echo $type?>&offset=<?php echo $offset + $page_limit?>"><?php _e('[next page]', 'wphostel')?></a>
 	<?php endif;?>	
 	</p>
