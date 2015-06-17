@@ -109,7 +109,11 @@ class WPHostelBooking {
 			
  			$headers .= 'From: '. $email_options['admin_email'] . "\r\n";
  			// echo $subject.'-'.$message.'<br>';
-			wp_mail( $email_options['admin_email'], $subject, $message, $headers );
+			$result = wp_mail( $email_options['admin_email'], $subject, $message, $headers );
+			$status = $result ? 'OK' : "Error: ".$GLOBALS['phpmailer']->ErrorInfo;
+	   	$wpdb->query($wpdb->prepare("INSERT INTO ".WPHOSTEL_EMAILLOG." SET
+	   		sender=%s, receiver=%s, subject=%s, date=CURDATE(), status=%s",
+	   		$admin_email, $email_options['admin_email'], $subject, $status));
 		} // end do email admin
 		
 		if($email_options['do_email_user']) {	
@@ -131,8 +135,12 @@ class WPHostelBooking {
 			$message = str_replace('{{num-beds}}', $booking->beds, $message);
 			
 			$headers .= 'From: '. $email_options['admin_email'] . "\r\n";
-			echo $subject.'-'.$message.'<br>';
-			wp_mail( $booking->contact_email, $subject, $message, $headers );
+			// echo $subject.'-'.$message.'<br>';
+			$result = wp_mail( $booking->contact_email, $subject, $message, $headers );
+			$status = $result ? 'OK' : "Error: ".$GLOBALS['phpmailer']->ErrorInfo;
+	   	$wpdb->query($wpdb->prepare("INSERT INTO ".WPHOSTEL_EMAILLOG." SET
+	   		sender=%s, receiver=%s, subject=%s, date=CURDATE(), status=%s",
+	   		$admin_email, $booking->contact_email, $subject, $status));
 		} // end do email user
 	} // end email
 	

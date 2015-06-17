@@ -84,7 +84,8 @@ None yet, please ask in the forum
 
 == Changelog ==
 
-= Version 0.9.2 =
+= Version 0.9.3 =
+- Added email log for all notification emails sent out from the plugin. Emails are logged from version 0.9.3 ahead.
 - Added "show_titles" argument to the [wphostel-list] shortcode. It allows you to show the room titles in the rooms listing table. 
 - Fixed the datepicker CSS bug
 

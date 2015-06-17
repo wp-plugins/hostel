@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Hostel package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Hostel 0.9.2\n"
+"Project-Id-Version: Hostel 0.9.3\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/hostel\n"
-"POT-Creation-Date: 2015-04-27 08:53:05+00:00\n"
+"POT-Creation-Date: 2015-06-17 15:26:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,57 +53,61 @@ msgstr ""
 msgid "Book"
 msgstr ""
 
-#. #-#-#-#-#  hostel.pot (Hostel 0.9.2)  #-#-#-#-#
+#. #-#-#-#-#  hostel.pot (Hostel 0.9.3)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
-#: models/hostel.php:75
+#: models/hostel.php:91
 msgid "Hostel"
 msgstr ""
 
-#: models/hostel.php:77
+#: models/hostel.php:93
 msgid "Settings"
 msgstr ""
 
-#: models/hostel.php:79 views/rooms.php:1
+#: models/hostel.php:95 views/rooms.php:1
 msgid "Manage Rooms"
 msgstr ""
 
-#: models/hostel.php:80
+#: models/hostel.php:96
 msgid "Manage Bookings"
 msgstr ""
 
-#: models/hostel.php:81
+#: models/hostel.php:97
 msgid "Unavailable Dates"
 msgstr ""
 
-#: models/hostel.php:82
+#: models/hostel.php:98 views/email-log.html.php:2
+msgid "Email Log"
+msgstr ""
+
+#: models/hostel.php:99
 msgid "Help"
 msgstr ""
 
-#: models/hostel.php:105
+#: models/hostel.php:122
 msgid "Please enter name!"
 msgstr ""
 
-#: models/hostel.php:106
+#: models/hostel.php:123
 msgid "Please enter email address!"
 msgstr ""
 
-#: models/hostel.php:107
+#: models/hostel.php:124
 msgid "Please enter number of beds, numbers only"
 msgstr ""
 
-#: models/hostel.php:108
+#: models/hostel.php:125
 msgid "Please enter arrival date"
 msgstr ""
 
-#: models/hostel.php:109
+#: models/hostel.php:126
 msgid "Please enter date of leaving"
 msgstr ""
 
-#: models/hostel.php:110
+#: models/hostel.php:127
 msgid "Date of arrival cannot be in the past"
 msgstr ""
 
-#: models/hostel.php:111
+#: models/hostel.php:128
 msgid "Date of arrival cannot be after date of leave"
 msgstr ""
 
@@ -327,6 +331,58 @@ msgstr ""
 msgid "[next page]"
 msgstr ""
 
+#: views/email-log.html.php:5
+msgid ""
+"This page shows what booking notification emails have been sent on each "
+"date. The last column will show the message status, i.e. response from the "
+"mailing server. If emails are not delivered or you see errors there you "
+"should contact your hosting support."
+msgstr ""
+
+#: views/email-log.html.php:9
+msgid "Log date:"
+msgstr ""
+
+#: views/email-log.html.php:10
+msgid "Show log"
+msgstr ""
+
+#: views/email-log.html.php:12
+msgid "Automatically cleanup old logs after"
+msgstr ""
+
+#: views/email-log.html.php:12 views/options.php:37
+msgid "days"
+msgstr ""
+
+#: views/email-log.html.php:12
+msgid "Set Cleanup"
+msgstr ""
+
+#: views/email-log.html.php:16
+msgid "No emails have been sent on the selected date."
+msgstr ""
+
+#: views/email-log.html.php:19
+msgid "Time"
+msgstr ""
+
+#: views/email-log.html.php:19
+msgid "Sender"
+msgstr ""
+
+#: views/email-log.html.php:19
+msgid "Receiver"
+msgstr ""
+
+#: views/email-log.html.php:20
+msgid "Subject"
+msgstr ""
+
+#: views/email-log.html.php:20
+msgid "Response from the mailing server"
+msgstr ""
+
 #: views/help.html.php:2
 msgid "Hostel for WordPress"
 msgstr ""
@@ -462,10 +518,6 @@ msgstr ""
 
 #: views/options.php:37
 msgid "Require minimum stay of:"
-msgstr ""
-
-#: views/options.php:37
-msgid "days"
 msgstr ""
 
 #: views/options.php:40

@@ -57,7 +57,21 @@ class WPHostel {
 				) DEFAULT CHARSET=utf8;";
 			
 			$wpdb->query($sql);
-	  }  	 
+	  }  
+	  
+	   // this is email log of all the messages sent in the system 
+	  if($wpdb->get_var("SHOW TABLES LIKE '".WPHOSTEL_EMAILLOG."'") != WPHOSTEL_EMAILLOG) {	  
+			$sql = "CREATE TABLE `" . WPHOSTEL_EMAILLOG . "` (
+				  `id` int UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+				  `sender` VARCHAR(255) NOT NULL DEFAULT '',
+				  `receiver` VARCHAR(255) NOT NULL DEFAULT '',
+				  `subject` VARCHAR(255) NOT NULL DEFAULT '',
+				  `date` DATE,
+				  `datetime` TIMESTAMP,
+				  `status` VARCHAR(255) NOT NULL DEFAULT 'OK'				  
+				) DEFAULT CHARSET=utf8;";
+			$wpdb->query($sql);
+	  }	 
 		  
 		// if there's no currency, default it to USD
 		$currency = get_option('wphostel_currency');
@@ -68,6 +82,8 @@ class WPHostel {
 			array("name" => 'price_type', "type" => "VARCHAR(100) NOT NULL DEFAULT 'per-bed'"),
 		 ),
 		 WPHOSTEL_ROOMS);  	  
+		 
+		update_option('wphostel_version', '0.73'); 
    }
    
    // main menu
@@ -79,6 +95,7 @@ class WPHostel {
 		add_submenu_page('wphostel_options', __("Manage Rooms", 'wphostel'), __("Manage Rooms", 'wphostel'), 'manage_options', 'wphostel_rooms', array('WPHostelRooms', "manage"));
 		add_submenu_page('wphostel_options', __("Manage Bookings", 'wphostel'), __("Manage Bookings", 'wphostel'), 'manage_options', 'wphostel_bookings', array('WPHostelBookings', "manage")); 
 		add_submenu_page('wphostel_options', __("Unavailable Dates", 'wphostel'), __("Unavailable Dates", 'wphostel'), 'manage_options', 'wphostel_unavailable', array('WPHostelBookings', "unavailable")); 
+		add_submenu_page('wphostel_options', __("Email Log", 'wphostel'), __("Email Log", 'wphostel'), 'manage_options', 'wphostel_emaillog', array('WPHostelHelp', "email_log"));
    	add_submenu_page('wphostel_options', __("Help", 'wphostel'), __("Help", 'wphostel'), 'manage_options', 'wphostel_help', array('WPHostelHelp', "index")); 	
 		
 	}
@@ -131,6 +148,7 @@ class WPHostel {
 		define( 'WPHOSTEL_ROOMS', $wpdb->prefix. "wphostel_rooms");
 		define( 'WPHOSTEL_BOOKINGS', $wpdb->prefix. "wphostel_bookings");
 		define( 'WPHOSTEL_PAYMENTS', $wpdb->prefix. "wphostel_payments");
+		define( 'WPHOSTEL_EMAILLOG', $wpdb->prefix. "wphostel_emaillog");
 	
 		define( 'WPHOSTEL_VERSION', get_option('wphostel_version'));
 		
@@ -163,9 +181,15 @@ class WPHostel {
 			update_option('wphostel_datepicker_css', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
 		}
 		
+		// cleanup email logs		
+		$cleanup_raw_log = get_option('hostelpro_cleanup_email_log');
+		if(empty($cleanup_raw_log)) $cleanup_raw_log = 7;
+		if($wpdb->get_var("SHOW TABLES LIKE '".WPHOSTEL_EMAILLOG."'") == WPHOSTEL_EMAILLOG) {			
+			$wpdb->query($wpdb->prepare("DELETE FROM ".WPHOSTEL_EMAILLOG." WHERE date < CURDATE() - INTERVAL %d DAY", $cleanup_raw_log));				
+		}	
+		
 		$old_version = get_option('wphostel_version');
-		if(empty($old_version) or $old_version < 0.72) self :: install(true);
-		update_option('wphostel_version', '0.72');
+		if(empty($old_version) or $old_version < 0.73) self :: install(true);		
 	}
 	
 	// handle Hostel vars in the request
