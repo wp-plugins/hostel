@@ -12,11 +12,12 @@
 	<?php return false; 
 	endif;?>
 	<table class="widefat">
-		<tr><th><?php _e('Room/beds', 'wphostel')?></th><th><?php _e('Contact name', 'wphostel')?></th><th><?php _e('Contact email', 'wphostel')?></th><th><?php _e('Booking dates', 'wphostel')?></th>
+		<tr><th><?php _e('ID', 'wphostel');?></th><th><?php _e('Room/beds', 'wphostel')?></th><th><?php _e('Contact name', 'wphostel')?></th><th><?php _e('Contact email', 'wphostel')?></th><th><?php _e('Booking dates', 'wphostel')?></th>
 		<th><?php _e('Amount paid/due', 'wphostel')?></th><th><?php _e('Status', 'wphostel')?></th><th><?php _e('Action', 'wphostel')?></th></tr>
 		<?php foreach($bookings as $booking):
 		$class = ('alternate' == @$class) ? '' : 'alternate';?>
-			<tr class="<?php echo $class?>"><td><?php printf(__('%d beds in %s', 'wphostel'), $booking->beds, $booking->room);?></td>
+			<tr class="<?php echo $class?>"><td><?php echo $booking->id?></td>
+			<td><?php printf(__('%d beds in %s', 'wphostel'), $booking->beds, $booking->room);?></td>
 			<td><?php echo $booking->contact_name?></td><td><?php echo $booking->contact_email?></td>
 			<td><?php echo date(get_option('date_format'), strtotime($booking->from_date)).' - '.date(get_option('date_format'), strtotime($booking->to_date))?></td>
 			<td><?php echo WPHOSTEL_CURRENCY." ".$booking->amount_paid." / ".WPHOSTEL_CURRENCY.' '.$booking->amount_due;?></td>
