@@ -56,6 +56,10 @@
 					<b>{{amount-due}}</b>, <b>{{room-type}}</b>, <b>{{room-name}}</b>, <b>{{num-beds}}</b>, <b>{{timestamp}}</b> <?php _e('(Date/time when reservation is made)','wphostel')?></p>
 			</div>
 			
+			<h2><?php _e('Other Technical Settings', 'hostelpro');?></h2>
+			
+			<p><input type="checkbox" name="debug_mode" value="1" <?php if(get_option('wphostel_debug_mode')) echo 'checked'?> /> <?php _e('Enable debug mode to see SQL errors. (Useful in case you have any problems)', 'wphostel')?></p>
+			
 			<p><input type="submit" value="<?php _e('Save Options', 'wphostel')?>"></p>
 			<input type="hidden" name="ok" value="1">
 				</div>

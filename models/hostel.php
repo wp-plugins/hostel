@@ -141,6 +141,12 @@ class WPHostel {
 	// initialization
 	static function init() {
 		global $wpdb;
+		
+		if(get_option('wphostel_debug_mode'))  {			
+			$wpdb->show_errors();
+			if(!defined('DIEONDBERROR')) define( 'DIEONDBERROR', true );
+		}			
+		
 		load_plugin_textdomain( 'wphostel', false, WPHOSTEL_RELATIVE_PATH."/languages/" );
 		if (!session_id()) @session_start();
 		
@@ -225,6 +231,7 @@ class WPHostel {
 			update_option('wphostel_cleanup_hours', $_POST['cleanup_hours']);
 			// update_option('wphostel_booking_url', $_POST['booking_url']);		
 			update_option('wphostel_min_stay', $_POST['min_stay']);
+			update_option('wphostel_debug_mode', @$_POST['debug_mode']);
 		}		
 		
 		if(!empty($_POST['datepicker_settings'])) {

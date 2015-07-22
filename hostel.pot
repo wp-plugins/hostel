@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Hostel package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Hostel 0.9.4\n"
+"Project-Id-Version: Hostel 0.9.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/hostel\n"
-"POT-Creation-Date: 2015-06-23 12:31:13+00:00\n"
+"POT-Creation-Date: 2015-07-22 14:16:03+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,7 +53,7 @@ msgstr ""
 msgid "Book"
 msgstr ""
 
-#. #-#-#-#-#  hostel.pot (Hostel 0.9.4)  #-#-#-#-#
+#. #-#-#-#-#  hostel.pot (Hostel 0.9.5)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: models/hostel.php:91
 msgid "Hostel"
@@ -558,33 +558,42 @@ msgid "Send confirmation email to user when booking is made"
 msgstr ""
 
 #: views/options.php:59
+msgid "Other Technical Settings"
+msgstr ""
+
+#: views/options.php:61
+msgid ""
+"Enable debug mode to see SQL errors. (Useful in case you have any problems)"
+msgstr ""
+
+#: views/options.php:63
 msgid "Save Options"
 msgstr ""
 
-#: views/options.php:64
+#: views/options.php:68
 msgid "Datepicker Localization and Theming"
 msgstr ""
 
-#: views/options.php:67
+#: views/options.php:71
 msgid ""
 "Here you can specify localization and theme files for your datepicker. "
 "Please do read <a href=\"%s\" target=\"_blank\">this article</a> for more "
 "information."
 msgstr ""
 
-#: views/options.php:68
+#: views/options.php:72
 msgid "Localization  file URL:"
 msgstr ""
 
-#: views/options.php:69
+#: views/options.php:73
 msgid "CSS Theme URL:"
 msgstr ""
 
-#: views/options.php:70
+#: views/options.php:74
 msgid "Save Datepicker Settings"
 msgstr ""
 
-#: views/options.php:74
+#: views/options.php:78
 msgid ""
 "Your feedback is most welcome! Please <a href=\"%s\" target=\"_blank\">let "
 "us know</a> what features and improvements you would like to see in the "
